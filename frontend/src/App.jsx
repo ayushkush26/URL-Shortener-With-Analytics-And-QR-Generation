@@ -2,34 +2,36 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import UrlShortenerForm from "./UrlShortenerForm";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+    // 🧠 LAYOUT STRATEGY: 
+    // We use a full-screen flex container to center our tool.
+    // This is "Container/Presentation" separation.
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+      
+      {/* The Header */}
+      <header className="mb-8 text-center">
+        <h1 className="text-4xl font-extrabold text-blue-700 tracking-tight">
+          🚀 Linkify Pro
+        </h1>
+        <p className="text-gray-600 mt-2 text-lg">
+          The Professional URL Shortener
         </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </header>
+
+      {/* 🧠 THE COMPONENT MOUNT */}
+      <main className="w-full max-w-lg">
+        <UrlShortenerForm />
+      </main>
+
+      {/* The Footer */}
+      <footer className="mt-12 text-gray-400 text-sm">
+        System Architecture Level 5 • MERN Stack
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
